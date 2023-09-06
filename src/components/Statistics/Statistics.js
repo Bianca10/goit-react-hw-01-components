@@ -1,5 +1,6 @@
 import React from 'react';
 import './Statistics.css';
+import PropTypes from 'prop-types';
 
 export default function Statistics({ title, stats }) {
   return (
@@ -18,3 +19,13 @@ export default function Statistics({ title, stats }) {
     </div>
   );
 }
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
